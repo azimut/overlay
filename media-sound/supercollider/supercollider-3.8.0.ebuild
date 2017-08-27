@@ -49,7 +49,8 @@ src_configure() {
 	local mycmakeargs=(
 		AUDIOAPI=$(usex jack jack portaudio)
 		-DSUPERNOVA=OFF
-		-DSC_HIDAPI=OFF
+		-DHID_LIBUSB=OFF
+		-DHID_HIDRAW=OFF
 		-DAUDIOAPI=$(usex jack jack portaudio)
 		-DINSTALL_HELP=ON
 		-DNATIVE=ON
