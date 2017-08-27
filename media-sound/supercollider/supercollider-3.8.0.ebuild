@@ -45,10 +45,10 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/SuperCollider-Source"
 
-src_prepare(){
-	epatch "${FILESDIR}"/headless.patch
-	eapply_user
-}
+# https://github.com/supercollider/supercollider/issues/2144
+PATCHES=(
+	"${FILESDIR}"/headless.patch
+	)
 
 src_configure() {
 	local mycmakeargs=(
