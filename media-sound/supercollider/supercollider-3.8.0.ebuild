@@ -45,6 +45,11 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/SuperCollider-Source"
 
+src_prepare(){
+	epatch "${FILESDIR}"/headless.patch
+	eapply_user
+}
+
 src_configure() {
 	local mycmakeargs=(
 		AUDIOAPI=$(usex jack jack portaudio)
@@ -77,7 +82,6 @@ src_configure() {
 		-DSN_MEMORY_DEBUGGING=ON
 		-DGC_SANITYCHECK=ON
 	)
-
 	cmake-utils_src_configure
 }
 

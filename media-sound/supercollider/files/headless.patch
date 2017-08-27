@@ -1,0 +1,15 @@
+--- a/lang/LangSource/SC_TerminalClient.cpp	2017-08-26 23:27:16.788535938 -0300
++++ b/lang/LangSource/SC_TerminalClient.cpp	2017-08-26 23:28:09.675538926 -0300
+@@ -398,7 +398,11 @@
+ 
+ void SC_TerminalClient::tick( const boost::system::error_code& error )
+ {
+-	mTimer.cancel();
++    if (error == boost::system::errc::success) {
++	    mTimer.cancel();
++    } else {
++        return;
++    }
+ 
+ 	double secs;
+ 	lock();
