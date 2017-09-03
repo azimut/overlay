@@ -12,7 +12,7 @@ SRC_URI="https://github.com/supercollider/supercollider/releases/download/Versio
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="avahi cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack +portaudio qt5 server +sndfile static-libs vim wiimote"
+IUSE="avahi cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack +portaudio qt5 server +sndfile static-libs vim wiimote native"
 REQUIRED_USE="^^ ( jack portaudio )"
 RESTRICT="mirror"
 
@@ -58,7 +58,7 @@ src_configure() {
 		-DHID_HIDRAW=OFF
 		-DAUDIOAPI=$(usex jack jack portaudio)
 		-DINSTALL_HELP=ON
-		-DNATIVE=ON
+		-DNATIVE=$(usex native)
 		-DSYSTEM_BOOST=OFF
 		-DSYSTEM_YAMLCPP=OFF
 		-DNO_AVAHI=$(usex !avahi)

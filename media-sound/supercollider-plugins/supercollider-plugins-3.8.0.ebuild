@@ -19,7 +19,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE=""
+IUSE="native"
 
 REQUIRED_USE=""
 
@@ -36,6 +36,7 @@ src_configure() {
 	local mycmakeargs=(
 		-Wno-dev
 		-DSUPERNOVA=OFF
+		-DNATIVE=$(usex native)
 	)
 	cmake-utils_src_configure 
 }
