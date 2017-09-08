@@ -52,3 +52,15 @@ src_install() {
 	#use gedit && newdoc editors/sced/README.md README.gedit
 	#use vim && newdoc editors/scvim/README.md README.vim
 }
+pkg_postinst() {
+	einfo
+	einfo "Notice: Quarks extension can be installed if git is present"
+	einfo "and running in SC this for example: 'Quarks.install(\"3Dj\")'"
+	einfo "Alternatively you can download manually the quark repo and"
+	einfo "add it into ~/.config/SuperCollider/sclang_conf.yaml"
+	einfo "includePaths:"
+	einfo "- /data/Dirt-Samples"
+	einfo "excludePaths:"
+	einfo "[]"
+	einfo
+}
