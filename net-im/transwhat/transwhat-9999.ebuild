@@ -26,7 +26,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 
-DOCS=( README.md )
+#DOCS=( README.md )
 
 src_prepare() {
 	cp "${FILESDIR}"/setup.py "${S}"/
