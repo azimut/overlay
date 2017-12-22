@@ -37,6 +37,6 @@ src_install() {
 	insinto "/usr/lib/${PN}"
 	doins transWhat/transwhat.py
 	exeinto "/usr/lib/${PN}"
-	doexe "${PN}".py
+	#doexe "${PN}".py
 	distutils-r1_src_install
 }
