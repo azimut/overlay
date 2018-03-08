@@ -47,8 +47,8 @@ S="${WORKDIR}/SuperCollider-Source"
 
 # https://github.com/supercollider/supercollider/issues/2144
 PATCHES=(
-	"${FILESDIR}"/headless.patch
-	"${FILESDIR}"/supercollider-3.8.0-multilib.patch
+	"${FILESDIR}"/3.8/headless.patch
+	"${FILESDIR}"/3.8/multilib.patch
 	)
 
 src_configure() {
