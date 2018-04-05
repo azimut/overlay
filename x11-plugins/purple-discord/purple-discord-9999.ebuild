@@ -14,7 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="net-im/pidgin
-dev-vcs/git
+RDEPEND="net-im/pidgin
 dev-libs/json-glib"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
