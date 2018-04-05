@@ -27,7 +27,3 @@ RDEPEND="app-text/discount
 	dev-libs/json-glib
 	net-im/pidgin"
 DEPEND="${RDEPEND}"
-
-src_compile() {
-	emake CC="$(tc-getCC)"
-}
