@@ -88,15 +88,6 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 
-	# https://github.com/supercollider/supercollider/issues/1209
-	# http://supercollider.github.io/development/building-raspberrypi
-	if ! use qt5; then
-		mv "${D}"/usr/share/SuperCollider/SCClassLibrary/JITLib/GUI \
-		   "${D}"/usr/share/SuperCollider/SCClassLibrary/scide_scqt/JITLibGUI || die
-		mv "${D}"/usr/share/SuperCollider/SCClassLibrary/Common/GUI \
-		   "${D}"/usr/share/SuperCollider/SCClassLibrary/scide_scqt || die
-	fi
-
 	use vim && newdoc editors/scvim/README.md README.vim
 	use emacs && newdoc editors/scel/README.md README.emacs
 	use gedit && newdoc editors/sced/README.md README.gedit
