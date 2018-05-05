@@ -1,0 +1,28 @@
+diff --git a/source/CMakeLists.txt b/source/CMakeLists.txt
+index 3781e14..a960de2 100644
+--- a/source/CMakeLists.txt
++++ b/source/CMakeLists.txt
+@@ -20,8 +20,8 @@ endif()
+ # includes
+ #---------
+ 
+-include_directories(${SC_PATH}/include/plugin_interface)
+-include_directories(${SC_PATH}/include/common)
++include_directories(${SC_PATH}/plugin_interface)
++include_directories(${SC_PATH}/common)
+ include_directories(${SC_PATH}/external_libraries/libsndfile/)
+ 
+ #-------
+diff --git a/source/Nes2/nes_apu.cpp b/source/Nes2/nes_apu.cpp
+index fe751df..c8c1abd 100644
+--- a/source/Nes2/nes_apu.cpp
++++ b/source/Nes2/nes_apu.cpp
+@@ -22,6 +22,7 @@
+        Author Matthew Conte, Ported by Fredrik Olofsson 070227
+ */
+ 
++#include <stdio.h>
+ #include "SC_PlugIn.h"
+ static InterfaceTable *ft;
+ 
+
