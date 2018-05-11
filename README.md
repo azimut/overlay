@@ -4,6 +4,7 @@
 * dev-python/pytesseract: not on portage, 9999 version found online converted to a versioned one.
 * dev-python/scrapyd: missing on portage though the client is there. Seems simple enough (jinx).
 * games-board/stockfish: install [fork](https://github.com/ddugovic/Stockfish) with support for variants from git
+* media-sound/reaper: ebuild took from zorks overlay, removing some stuff
 * media-sound/supercollider: Disable supernova, try to disable HID, patch for headless[#1209](https://github.com/supercollider/supercollider/issues/1209) and headless cpu bug[#2144](https://github.com/supercollider/supercollider/issues/2144)
 * media-sound/supercollider-plugins: fix inconsistent release tarballs[#134](https://github.com/supercollider/sc3-plugins/issues/134) by using git-r3 
 * net-misc/trickle: missing on portage, ebuild took from gentoo-htpc, fixed SRC\_URL and added ArchLinux patch.
