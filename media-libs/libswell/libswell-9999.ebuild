@@ -6,8 +6,7 @@ EAPI=6
 inherit git-r3
 
 DESCRIPTION=" Cockos abstraction layer support for Reaper"
-HOMEPAGE="http://http://www.landoleet.org/dev"
-#SRC_URI="mirror://sourceforge/ctags/${P}.tar.gz"
+HOMEPAGE="https://www.cockos.com/wdl/"
 EGIT_REPO_URI="https://github.com/justinfrankel/WDL.git"
 
 LICENSE="GPL-2"
@@ -27,9 +26,7 @@ src_compile() {
 
 src_install() {
     #emake DESTDIR="${D}" install
-	pwd
-	ls 
-	ls WDL/swell/libSwell.so 
+
 	mkdir -p ${D}/usr/local/lib/
 	cp WDL/swell/libSwell.so ${D}/usr/local/lib/
 
