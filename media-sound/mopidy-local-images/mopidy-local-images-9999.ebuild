@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="media-sound/mopidy
-dev-python/raven"
+>=dev-python/raven-6
+dev-python/uritools"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"

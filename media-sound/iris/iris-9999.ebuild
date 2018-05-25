@@ -18,6 +18,7 @@ KEYWORDS="~amd64"
 RDEPEND="media-sound/mopidy
 media-sound/mopidy-local-images
 dev-python/pylast
-dev-python/raven"
+>=dev-python/raven-6
+dev-python/configobj"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
