@@ -19,6 +19,8 @@ SLOT="0"
 KEYWORDS="amd64 arm x86"
 IUSE=""
 
+RESTRICT="mirror"
+
 DEPEND="
 	dev-util/gcovr
 	app-doc/doxygen

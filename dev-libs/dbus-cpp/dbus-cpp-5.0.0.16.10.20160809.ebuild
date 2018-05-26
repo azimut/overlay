@@ -24,7 +24,7 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc examples test"
-#RESTRICT="mirror"
+RESTRICT="mirror"
 
 DEPEND="dev-cpp/gtest
 	dev-libs/boost:=
