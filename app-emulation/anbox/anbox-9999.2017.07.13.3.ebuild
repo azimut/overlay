@@ -54,7 +54,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/pick_python2.patch"
 	cmake-utils_src_prepare
 	# Remove deprecated syntax from udev rule #
 	sed -e 's: NAME="%k",::g' \
