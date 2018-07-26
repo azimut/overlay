@@ -19,14 +19,11 @@ IUSE=""
 DEPEND=">=dev-lang/go-1.8"
 
 pkg_setup() {
-	enewgroup matterbridge
-	enewuser matterbridge -1 -1 -1 matterbridge
+	enewgroup $PN
+	enewuser $PN -1 -1 -1 $PN
 }
 
 src_install() {
 	default
-
-	#newinitd "${FILESDIR}"/initd matterbridge
 	dobin forego
-	#fowners matterbridge:matterbridge /usr/bin/matterbridge || die "fowners failed"
 }
