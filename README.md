@@ -1,7 +1,5 @@
 # Overlay
 ## Raison d'être
-* app-emulation/anbox: from qunxyz overlay
-* dev-lisp/roswell: from clx overlay rm patch of path
 * dev-python/pytesseract: not on portage, 9999 version found online converted to a versioned one.
 * dev-python/scrapyd: missing on portage though the client is there. Seems simple enough (jinx).
 * games-board/stockfish: install [fork](https://github.com/ddugovic/Stockfish) with support for variants from git
