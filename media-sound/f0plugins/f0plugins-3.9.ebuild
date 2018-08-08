@@ -10,7 +10,6 @@ HOMEPAGE="https://github.com/redFrik/f0plugins"
 
 EGIT_REPO_URI="https://github.com/redFrik/f0plugins"
 EGIT_COMMIT="${PV}"
-#S="${WORKDIR}/supercollider-plugins-3.8.0"
 
 RESTRICT="mirror"
 
