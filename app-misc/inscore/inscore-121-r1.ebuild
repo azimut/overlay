@@ -3,8 +3,6 @@
 
 EAPI=6
 
-#inherit git-r3
-
 DESCRIPTION="INScore - augmented interactive music scores"
 HOMEPAGE="https://github.com/grame-cncm/"
 
@@ -21,9 +19,10 @@ RDEPEND="media-libs/guidoar
 		 media-libs/guidolib
 		 net-libs/libmicrohttpd
 		 dev-qt/qtcore:5
-		 dev-qt/qtwebsockets"
+		 dev-qt/qtwebsockets
+video? ( media-plugins/gst-plugins-libav )"
 
-IUSE=""
+IUSE="video"
 
 S="${WORKDIR}/${P}/build/"
 
@@ -31,7 +30,7 @@ src_install(){
 	mkdir -p ${D}/usr/$(get_libdir)
 	mkdir -p ${D}/usr/bin
 	emake INSTALLLIB=${D}/usr/$(get_libdir) \
-	    INSTALLBIN=${D}/usr/bin \
+		INSTALLBIN=${D}/usr/bin \
 		DESTDIR="${D}" \
 		PREFIX="${D}/usr" install
 	einstalldocs
