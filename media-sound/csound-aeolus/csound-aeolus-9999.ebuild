@@ -20,19 +20,24 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
+IUSE="double-precision"
 REQUIRED_USE=""
 
 RDEPEND="
-media-sound/csound
+media-sound/csound[double-precision=]
 media-sound/aeolus"
 
 DEPEND="${RDEPEND}"
+
 
 src_configure() {
 	# NOTE: pdf is not in the repo
 	sed -i -e 's#.pdf#.tex#' CMakeLists.txt
 	# NOTE: Gentoo install path is less verbose
 	sed -i -e 's#/plugins64-${APIVERSION}#/plugins#' CMakeLists.txt
+	local mycmakeargs=(
+		-DUSE_DOUBLE=$(usex double-precision)
+	)
 	cmake-utils_src_configure
 }
 
