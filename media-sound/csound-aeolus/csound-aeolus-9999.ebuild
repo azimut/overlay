@@ -34,7 +34,7 @@ src_configure() {
 	# NOTE: pdf is not in the repo
 	sed -i -e 's#.pdf#.tex#' CMakeLists.txt
 	# NOTE: Gentoo install path is less verbose
-	sed -i -e 's#/plugins64-${APIVERSION}#/plugins#' CMakeLists.txt
+	sed -i -e 's#/plugins64-${APIVERSION}#/plugins64#' CMakeLists.txt
 	local mycmakeargs=(
 		-DUSE_DOUBLE=$(usex double-precision)
 	)
