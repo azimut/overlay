@@ -1,6 +1,12 @@
 * Overlay
-** Raison d'être
-*** Missing on portage
+
+** Forked from portage
+| Package                   | Details                                      |
+|---------------------------+----------------------------------------------|
+| media-sound/aeolus        | use virtual/jack                             |
+| media-sound/csound        | use virtual/jack                             |
+| media-sound/supercollider | backporting versions and patches [[https://github.com/supercollider/supercollider/issues/1209][#1209]] [[https://github.com/supercollider/supercollider/issues/2144][#2144]] |
+** Missing on portage
 | Package                           | Details                                |
 |-----------------------------------+----------------------------------------|
 | app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
@@ -22,11 +28,3 @@
 | x11-misc/keynav                   |                                        |
 | x11-plugins/purple-discord        |                                        |
 | x11-plugins/purple-rocketchat     |                                        |
-
-
-*** Forked from portage
-| Package                   | Details                                      |
-|---------------------------+----------------------------------------------|
-| media-sound/aeolus        | use virtual/jack                             |
-| media-sound/csound        | use virtual/jack                             |
-| media-sound/supercollider | backporting versions and patches [[https://github.com/supercollider/supercollider/issues/1209][#1209]] [[https://github.com/supercollider/supercollider/issues/2144][#2144]] |
