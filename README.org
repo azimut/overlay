@@ -1,0 +1,32 @@
+* Overlay
+** Raison d'être
+*** Missing on portage
+| Package                           | Details                                |
+|-----------------------------------+----------------------------------------|
+| app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
+| dev-python/pytesseract            |                                        |
+| dev-python/raven                  | ???                                    |
+| dev-python/scrapyd                |                                        |
+| dev-python/uritools               |                                        |
+| dev-util/rebar3                   |                                        |
+| games-board/stockfish             | [[https://github.com/ddugovic/Stockfish][fork]] with variants support             |
+| media-libs/game-music-emu         |                                        |
+| media-sound/csound-aeolus         |                                        |
+| media-sound/f0plugins             |                                        |
+| media-sound/reaper                | media-libs/libswell                    |
+| media-sound/supercollider-plugins | handles [[https://github.com/supercollider/sc3-plugins/issues/134][#134]]                           |
+| net-misc/matterbridge             |                                        |
+| net-misc/trickle                  |                                        |
+| sci-libs/cvblob                   | ???                                    |
+| sys-apps/forego                   |                                        |
+| x11-misc/keynav                   |                                        |
+| x11-plugins/purple-discord        |                                        |
+| x11-plugins/purple-rocketchat     |                                        |
+
+
+*** Forked from portage
+| Package                   | Details                                      |
+|---------------------------+----------------------------------------------|
+| media-sound/aeolus        | use virtual/jack                             |
+| media-sound/csound        | use virtual/jack                             |
+| media-sound/supercollider | backporting versions and patches [[https://github.com/supercollider/supercollider/issues/1209][#1209]] [[https://github.com/supercollider/supercollider/issues/2144][#2144]] |
