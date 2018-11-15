@@ -11,9 +11,7 @@
 |-----------------------------------+----------------------------------------|
 | app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
 | dev-python/pytesseract            |                                        |
-| dev-python/raven                  | ???                                    |
 | dev-python/scrapyd                |                                        |
-| dev-python/uritools               |                                        |
 | dev-util/rebar3                   |                                        |
 | games-board/stockfish             | [[https://github.com/ddugovic/Stockfish][fork]] with variants support             |
 | media-libs/game-music-emu         |                                        |
