@@ -1,5 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
-# $Id$
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
@@ -36,7 +36,7 @@ src_configure() {
 		-DSC_PATH=/usr/include/SuperCollider
 		-DINSTALL_DESTINATION=/usr/$(get_libdir)/SuperCollider/plugins/
 	)
-	cmake-utils_src_configure 
+	cmake-utils_src_configure
 }
 
 src_install() {

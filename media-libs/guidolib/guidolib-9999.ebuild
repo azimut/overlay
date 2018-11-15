@@ -5,7 +5,7 @@ EAPI=6
 
 inherit git-r3 cmake-utils
 
-DESCRIPTION="A library providing a consistent way to browse and transform Guido Music Notation scores."
+DESCRIPTION="A library providing a consistent way to browse and transform GMN."
 HOMEPAGE="https://github.com/grame-cncm/"
 
 EGIT_REPO_URI="https://github.com/grame-cncm/guidolib"

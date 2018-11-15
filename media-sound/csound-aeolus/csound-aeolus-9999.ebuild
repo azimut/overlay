@@ -1,4 +1,5 @@
 # Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
@@ -28,7 +29,6 @@ media-sound/csound[double-precision=]
 media-sound/aeolus"
 
 DEPEND="${RDEPEND}"
-
 
 src_configure() {
 	# NOTE: pdf is not in the repo

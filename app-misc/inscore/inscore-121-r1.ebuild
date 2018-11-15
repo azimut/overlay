@@ -27,10 +27,10 @@ IUSE="video"
 S="${WORKDIR}/${P}/build/"
 
 src_install(){
-	mkdir -p ${D}/usr/$(get_libdir)
-	mkdir -p ${D}/usr/bin
-	emake INSTALLLIB=${D}/usr/$(get_libdir) \
-		INSTALLBIN=${D}/usr/bin \
+	mkdir -p "${D}/usr/$(get_libdir)"
+	mkdir -p "${D}/usr/bin"
+	emake INSTALLLIB="${D}/usr/$(get_libdir)" \
+		INSTALLBIN="${D}/usr/bin" \
 		DESTDIR="${D}" \
 		PREFIX="${D}/usr" install
 	einstalldocs

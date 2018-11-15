@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/supercollider/supercollider/releases/download/Versio
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="avahi cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack +portaudio qt5 server +sndfile static-libs vim wiimote native"
+IUSE="avahi cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack +portaudio qt5 server +sndfile static-libs vim native"
 REQUIRED_USE="^^ ( jack portaudio )"
 RESTRICT="mirror"
 
@@ -34,8 +34,7 @@ RDEPEND="
 		dev-qt/qtsensors:5
 		dev-qt/qtwebkit:5
 	)
-	sndfile? ( media-libs/libsndfile )
-	wiimote? ( app-misc/cwiid )"
+	sndfile? ( media-libs/libsndfile )"
 DEPEND="${RDEPEND}
 	dev-libs/icu
 	virtual/pkgconfig
@@ -74,7 +73,6 @@ src_configure() {
 		-DSC_ED=$(usex gedit)
 		-DSC_VIM=$(usex vim)
 		-DSC_EL=$(usex emacs)
-		-DSC_WII=$(usex wiimote)
 	)
 
 	use debug && mycmakeargs+=(

@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -19,17 +19,16 @@ RDEPEND="${DEPEND}"
 IUSE=""
 
 src_compile() {
-    #econf --with-posix-regex
+	#econf --with-posix-regex
 	cd WDL/swell
 	make
 }
 
 src_install() {
-    #emake DESTDIR="${D}" install
+	#emake DESTDIR="${D}" install
 
-	mkdir -p ${D}/usr/local/lib/
-	cp WDL/swell/libSwell.so ${D}/usr/local/lib/
+	mkdir -p "${D}/usr/local/lib/"
+	cp WDL/swell/libSwell.so "${D}/usr/local/lib/"
 
-    #dodoc FAQ NEWS README
+	#dodoc FAQ NEWS README
 }
-

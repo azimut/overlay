@@ -20,7 +20,7 @@ RDEPEND="x11-libs/cairo[X]
 	x11-libs/libXinerama
 	>=x11-misc/xdotool-3.20160804
 	>=dev-libs/glib-2.0"
-DEPEND="x11-proto/xproto
+DEPEND="x11-base/xorg-proto
 	${RDEPEND}"
 
 src_prepare() {

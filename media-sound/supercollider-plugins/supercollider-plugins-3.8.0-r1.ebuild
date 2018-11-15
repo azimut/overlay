@@ -1,11 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
-# $Id$
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 inherit cmake-utils eutils git-r3
 
-DESCRIPTION="Third-party plugins provide additional synthesis, analysis, and other capabilities for the supercollider server."
+DESCRIPTION="Third-party plugins provide additional synthesis and analysis."
 HOMEPAGE="https://github.com/supercollider/sc3-plugins"
 
 EGIT_REPO_URI="https://github.com/supercollider/sc3-plugins"
@@ -30,14 +30,13 @@ PATCHES=(
 	"${FILESDIR}"/find-supercollider-3.7.2.patch
 	)
 
-
 src_configure() {
 	local mycmakeargs=(
 		-Wno-dev
 		-DSUPERNOVA=OFF
 		-DNATIVE=$(usex native)
 	)
-	cmake-utils_src_configure 
+	cmake-utils_src_configure
 }
 
 src_install() {

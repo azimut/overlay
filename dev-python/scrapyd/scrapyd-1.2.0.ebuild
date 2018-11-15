@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -9,7 +9,7 @@ PYTHON_REQ_USE="sqlite(+)"
 inherit vcs-snapshot distutils-r1
 
 DESCRIPTION="A high-level Python Screen Scraping framework"
-HOMEPAGE="https://github.com/scrapy/scrapyd/ http://pypi.python.org/pypi/Scrapyd/"
+HOMEPAGE="https://github.com/scrapy/scrapyd/ https://pypi.python.org/pypi/Scrapyd/"
 SRC_URI="https://github.com/scrapy/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
@@ -17,9 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-RDEPEND="
-	dev-python/scrapy[${PYTHON_USEDEP}]
-	"
+RDEPEND=""
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 python_prepare_all() {

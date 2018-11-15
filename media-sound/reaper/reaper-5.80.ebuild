@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -19,10 +19,11 @@ SRC_URI="
 #	amd64? ( https://landoleet.org/dev/old/reaper_550rc1_developer_linux_x86_64.tar.xz -> reaper_linux_x86_64.tar.xz ) "
 #	arm? ( http://www.landoleet.org/dev/${PN}_${PV}_developer_linux_armv7l.tar.xz -> reaper.tar.xz )
 
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
+HOMEPAGE="https://www.reaper.fm/"
 
 RESTRICT="mirror"
 
@@ -45,15 +46,15 @@ src_install() {
 	cp  "${S}/REAPER/tips.txt"     "${D}usr/local/lib/reaper-${PV}/"
 	cp  "${S}/REAPER/whatsnew.txt" "${D}usr/local/lib/reaper-${PV}/"
 	insinto "/usr/local/lib/reaper-${PV}"
-    #doins -r "${S}/REAPER/"* "${D}usr/local/lib/reaper-${PV}/" || die "Install failed!"
-    #doexe  "${S}/REAPER/"*  || die "Install failed!"
+	#doins -r "${S}/REAPER/"* "${D}usr/local/lib/reaper-${PV}/" || die "Install failed!"
+	#doexe  "${S}/REAPER/"*  || die "Install failed!"
 	dosym "/usr/local/lib/reaper-${PV}" "/usr/local/lib/reaper"
 	dosym "/usr/local/lib/libSwell.so"  "/usr/local/lib/reaper-${PV}/libSwell.so"
 
 	#All the documentation
-	dodoc readme-linux.txt REAPER/license.txt REAPER/whatsnew.txt REAPER/tips.txt 
-	#"Docs/REAPER Quick Start.pdf" 
-	
+	dodoc readme-linux.txt REAPER/license.txt REAPER/whatsnew.txt REAPER/tips.txt
+	#"Docs/REAPER Quick Start.pdf"
+
 	#everything else the dirty way
 	cp -r "${S}/REAPER/Plugins"     "${D}usr/local/lib/reaper-${PV}/" || die "Install failed!"
 	cp -r "${S}/REAPER/InstallData" "${D}usr/local/lib/reaper-${PV}/" || die "Install failed!"
