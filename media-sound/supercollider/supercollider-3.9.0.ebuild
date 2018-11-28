@@ -25,7 +25,7 @@ RDEPEND="
 	x11-libs/libXt
 	avahi? ( net-dns/avahi )
 	fftw? ( sci-libs/fftw:3.0= )
-	jack? ( media-sound/jack-audio-connection-kit )
+	jack? ( virtual/jack )
 	portaudio? ( media-libs/portaudio )
 	qt5? (
 		dev-qt/qtcore:5
