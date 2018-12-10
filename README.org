@@ -3,6 +3,7 @@
 ** Forked from portage
 | Package                   | Details                                      |
 |---------------------------+----------------------------------------------|
+| media-plugins/hexter      | bump version                                 |
 | media-sound/aeolus        | use virtual/jack                             |
 | media-sound/csound        | use virtual/jack                             |
 | media-sound/supercollider | backporting versions and patches [[https://github.com/supercollider/supercollider/issues/1209][#1209]] [[https://github.com/supercollider/supercollider/issues/2144][#2144]] |
