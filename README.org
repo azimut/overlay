@@ -10,6 +10,7 @@
 ** Missing on portage
 | Package                           | Details                                |
 |-----------------------------------+----------------------------------------|
+| app-doc/stdman                    | from zhou13 overlay                    |
 | app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
 | dev-python/pytesseract            |                                        |
 | dev-python/scrapyd                |                                        |
