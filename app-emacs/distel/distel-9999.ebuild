@@ -12,7 +12,8 @@ HOMEPAGE="https://code.google.com/p/distel/
 if [[ ${PV} == "9999" ]] ; then
    inherit git-r3 #distutils-r1
    EGIT_REPO_URI="https://github.com/massemanet/distel.git"
-   EGIT_COMMIT="640b7ab84a5fdf8918c3eda00fbfc115c0f7d74a" # avoid last commit
+   EGIT_BRANCH="2018"
+   EGIT_COMMIT="23ea095eae52e3c88b3cb89d3a40f7dc8979661b"
 else 
      SRC_URI="https://github.com/massemanet/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -39,7 +40,7 @@ src_compile() {
 src_install() {
         emake prefix="${ED}"/usr \
                 ELISP_DIR="${ED}${SITELISP}/${PN}" install
-        #elisp-site-file-install "${FILESDIR}/${SITEFILE}"
+        elisp-site-file-install "${FILESDIR}/${SITEFILE}"
         doinfo doc/distel.info
         dohtml doc/distel/*.html
         dodoc AUTHORS ChangeLog NEWS README*
