@@ -12,6 +12,8 @@
 |-----------------------------------+----------------------------------------|
 | app-doc/stdman                    | from zhou13 overlay                    |
 | app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
+| dev-games/raylib                  | copy from clx overlay                  |
+| dev-games/godot                   | fork from Drauthius overlay + .NET     |
 | dev-python/pytesseract            |                                        |
 | dev-python/scrapyd                |                                        |
 | dev-util/rebar3                   |                                        |
