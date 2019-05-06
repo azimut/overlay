@@ -15,7 +15,7 @@ SRC_URI="https://github.com/godotengine/${PN}/archive/${PV}-stable.zip"
 S="${WORKDIR}/${P}-stable"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+enet +freetype +llvm pulseaudio theora +udev +vorbis +webp +websockets +mbedtls +opus"
+IUSE="+enet +freetype +llvm pulseaudio theora +udev +vorbis +webp +websockets +mbedtls +opus dotnet"
 
 DEPEND="
 		>=app-arch/bzip2-1.0.6-r6
@@ -53,6 +53,11 @@ DEPEND="
 		pulseaudio? ( >=media-sound/pulseaudio-5.0-r7 )
 		theora? ( media-libs/libtheora )
 		udev? ( virtual/udev )
+		dotnet? (
+				>=dev-lang/mono-5.12.0
+				dev-dotnet/nuget
+				dev-util/msbuild
+		)
 		virtual/glu
 		vorbis? ( >=media-libs/libvorbis-1.3.4 )"
 
@@ -92,10 +97,16 @@ src_configure() {
 		udev=$(usex udev)
 		use_llvm=$(usex llvm)
 	)
+	NET_MYSCONS=(
+		${MYSCONS[@]}
+		module_mono_enabled=yes
+		mono_glue=no
+	)
 }
 
 src_compile() {
-	escons "${MYSCONS[@]}"
+	escons "${NET_MYSCONS[@]}"
+	#escons "${MYSCONS[@]}"
 }
 
 src_install() {
