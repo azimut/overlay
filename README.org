@@ -17,6 +17,7 @@
 | dev-python/pytesseract            |                                        |
 | dev-python/scrapyd                |                                        |
 | dev-util/rebar3                   |                                        |
+| dev-util/renderdoc                | [[https://github.com/gentoo-mirror/AzP/tree/master/dev-util/renderdoc][fork]] version bumped                    |
 | games-board/stockfish             | [[https://github.com/ddugovic/Stockfish][fork]] with variants support             |
 | media-libs/game-music-emu         |                                        |
 | media-libs/rtmidi                 | proaudio fork with virtual/jack        |
