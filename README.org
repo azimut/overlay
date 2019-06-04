@@ -14,6 +14,7 @@
 | app-misc/inscore                  | media-libs/guidoar media-libs/guidolib |
 | dev-games/raylib                  | copy from clx overlay                  |
 | dev-games/godot                   | fork from Drauthius overlay + .NET     |
+| dev-games/amulet                  | forced rebuild of sdl                  |
 | dev-python/pytesseract            |                                        |
 | dev-python/scrapyd                |                                        |
 | dev-util/rebar3                   |                                        |
