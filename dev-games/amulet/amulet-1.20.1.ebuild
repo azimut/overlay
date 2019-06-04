@@ -22,3 +22,7 @@ src_compile(){
 	emake SDL_PREBUILT="" SDL_PREBUILT_DIR="/asda" builds/linux64/lua51/release/lib/libsdl.a || die # HACKS!
 	emake SDL_PREBUILT="" SDL_PREBUILT_DIR="/asda" TARGET=linux64.release LUAVM=lua51 || die
 }
+
+src_install(){
+	dobin amulet
+}
