@@ -4,7 +4,7 @@
 EAPI=7
 PYTHON_COMPAT=( python2_7 )
 
-inherit eutils python-any-r1 scons-utils
+inherit eutils python-any-r1 scons-utils desktop
 
 DESCRIPTION="Multi-platform 2D and 3D game engine"
 HOMEPAGE="http://godotengine.org"
@@ -98,7 +98,8 @@ src_configure() {
 		use_llvm=$(usex llvm)
 	)
 	NET_MYSCONS=(
-		${MYSCONS[@]}
+		CC="$(tc-getCC)"
+		tools=yes
 		module_mono_enabled=yes
 		mono_glue=no
 	)
@@ -106,7 +107,8 @@ src_configure() {
 
 src_compile() {
 	escons "${NET_MYSCONS[@]}"
-	#escons "${MYSCONS[@]}"
+	bin/godot.x11.tools.64.mono --generate-mono-glue modules/mono/glue
+	escons "${MYSCONS[@]}"
 }
 
 src_install() {
