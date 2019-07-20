@@ -7,7 +7,7 @@ SRC_URI="http://www.un4seen.com/files/bass24-linux.zip"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="-* ~x86"
+KEYWORDS="-* ~amd64"
 IUSE="doc"
 RESTRICT="mirror strip"
 
@@ -25,5 +25,5 @@ src_install() {
 	insinto /usr/include
 	doins bass.h
 
-	dolib.so libbass.so
+	dolib.so x64/libbass.so
 }
