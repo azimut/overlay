@@ -23,6 +23,7 @@
 | dev-util/renderdoc                | [[https://github.com/gentoo-mirror/AzP/tree/master/dev-util/renderdoc][fork]] version bumped                    |
 | games-board/stockfish             | [[https://github.com/ddugovic/Stockfish][fork]] with variants support             |
 | media-libs/game-music-emu         |                                        |
+| media-libs/libbass-bin            | init from clx, for rocket              |
 | media-libs/rtmidi                 | proaudio fork with virtual/jack        |
 | media-sound/csound-aeolus         |                                        |
 | media-sound/dexed                 | from audiodef/gentoostudio             |
@@ -37,3 +38,4 @@
 | x11-misc/keynav                   |                                        |
 | x11-plugins/purple-discord        |                                        |
 | x11-plugins/purple-rocketchat     |                                        |
+|                                   |                                        |
