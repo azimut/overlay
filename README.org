@@ -36,6 +36,7 @@
 | sci-libs/cvblob                   | ???                                    |
 | sys-apps/forego                   |                                        |
 | x11-misc/keynav                   |                                        |
+| x11-misc/rocket                   |                                        |
 | x11-plugins/purple-discord        |                                        |
 | x11-plugins/purple-rocketchat     |                                        |
 |                                   |                                        |
