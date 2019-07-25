@@ -21,6 +21,7 @@
 | dev-python/scrapyd                |                                        |
 | dev-util/rebar3                   |                                        |
 | dev-util/renderdoc                | [[https://github.com/gentoo-mirror/AzP/tree/master/dev-util/renderdoc][fork]] version bumped                    |
+| dev-util/tundra                   |                                        |
 | games-board/stockfish             | [[https://github.com/ddugovic/Stockfish][fork]] with variants support             |
 | media-libs/game-music-emu         |                                        |
 | media-libs/libbass-bin            | init from clx, for rocket              |
@@ -36,6 +37,7 @@
 | sci-libs/cvblob                   | ???                                    |
 | sys-apps/forego                   |                                        |
 | x11-misc/keynav                   |                                        |
+| x11-misc/gnu-rocket               |                                        |
 | x11-misc/rocket                   |                                        |
 | x11-plugins/purple-discord        |                                        |
 | x11-plugins/purple-rocketchat     |                                        |
