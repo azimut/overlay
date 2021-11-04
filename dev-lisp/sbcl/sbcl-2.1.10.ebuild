@@ -110,7 +110,7 @@ src_prepare() {
 	# eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
 	eapply_user
-
+        echo '"'"${PV}"'"' > version.lisp-expr
 	# Make sure the *FLAGS variables are sane.
 	# sbcl needs symbols in resulting binaries, so building with the -s linker flag will fail.
 	strip-unsupported-flags
