@@ -40,6 +40,8 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
 IUSE="debug doc source +threads +unicode zlib"
 
+S="${WORKDIR}/sbcl-static-executable-v2-${PV}"
+
 CDEPEND=">=dev-lisp/asdf-3.3:="
 BDEPEND="${CDEPEND}
 		doc? ( sys-apps/texinfo >=media-gfx/graphviz-2.26.0 )"
@@ -91,7 +93,7 @@ sbcl_apply_features() {
 
 src_unpack() {
 	unpack ${A}
-	mv sbcl-*-* sbcl-binary || die
+	mv sbcl-${PV}-* sbcl-binary || die
 	cd "${S}"
 }
 
