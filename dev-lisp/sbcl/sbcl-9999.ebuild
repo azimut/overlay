@@ -77,10 +77,10 @@ sbcl_apply_features() {
 	fi
 	sbcl_feature "true" ":sb-ldb"
 	sbcl_feature "false" ":sb-test"
-    # DAEWOK flags
-    sbcl_feature "true" ":sb-linkable-runtime"
-    sbcl_feature "true" ":sb-prelink-linkage-table"
-    # END
+        # DAEWOK flags
+        sbcl_feature "true" ":sb-linkable-runtime"
+        sbcl_feature "true" ":sb-prelink-linkage-table"
+        # END
 	sbcl_feature "$(usep unicode)" ":sb-unicode"
 	sbcl_feature "$(usep zlib)" ":sb-core-compression"
 	sbcl_feature "$(usep debug)" ":sb-xref-for-internals"
@@ -99,15 +99,15 @@ src_unpack() {
 
 src_prepare() {
 	# bug #468482
-	eapply "${FILESDIR}"/concurrency-test-2.0.1.patch
-	# bugs #486552, #527666, #517004
-	eapply "${FILESDIR}"/bsd-sockets-test-2.0.5.patch
-	# bugs #560276, #561018
-	eapply "${FILESDIR}"/sb-posix-test-1.2.15.patch
-	# bug #767742
-	eapply "${FILESDIR}"/etags-2.1.0.patch
+	# eapply "${FILESDIR}"/concurrency-test-2.0.1.patch
+	# # bugs #486552, #527666, #517004
+	# eapply "${FILESDIR}"/bsd-sockets-test-2.0.5.patch
+	# # bugs #560276, #561018
+	# eapply "${FILESDIR}"/sb-posix-test-1.2.15.patch
+	# # bug #767742
+	# eapply "${FILESDIR}"/etags-2.1.0.patch
 
-	eapply "${FILESDIR}"/verbose-build-2.0.3.patch
+	# eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
 	eapply_user
 
