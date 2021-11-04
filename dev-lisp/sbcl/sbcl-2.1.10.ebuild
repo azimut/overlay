@@ -107,7 +107,7 @@ src_prepare() {
 	# bug #767742
 	eapply "${FILESDIR}"/etags-2.1.0.patch
 
-	eapply "${FILESDIR}"/verbose-build-2.0.3.patch
+	#eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
 	eapply_user
         echo '"'"${PV}"'"' > version.lisp-expr
