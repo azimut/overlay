@@ -77,10 +77,10 @@ sbcl_apply_features() {
 	fi
 	sbcl_feature "true" ":sb-ldb"
 	sbcl_feature "false" ":sb-test"
-        # DAEWOK flags
-        sbcl_feature "true" ":sb-linkable-runtime"
-        sbcl_feature "true" ":sb-prelink-linkage-table"
-        # END
+	# DAEWOK flags
+	sbcl_feature "true" ":sb-linkable-runtime"
+	sbcl_feature "true" ":sb-prelink-linkage-table"
+	# END
 	sbcl_feature "$(usep unicode)" ":sb-unicode"
 	sbcl_feature "$(usep zlib)" ":sb-core-compression"
 	sbcl_feature "$(usep debug)" ":sb-xref-for-internals"
