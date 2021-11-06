@@ -110,7 +110,7 @@ src_prepare() {
 	#eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
 	eapply_user
-        echo '"'"${PV}"'"' > version.lisp-expr
+    echo '"'"${PV}"'"' > version.lisp-expr
 	# Make sure the *FLAGS variables are sane.
 	# sbcl needs symbols in resulting binaries, so building with the -s linker flag will fail.
 	strip-unsupported-flags
@@ -232,6 +232,7 @@ src_install() {
 	if use source; then
 		./clean.sh
 		cp -av src "${ED}/usr/$(get_libdir)/sbcl/" || die
+		cp -av tools-for-build "${ED}/usr/$(get_libdir)/sbcl/" || die
 		for d in contrib/*/; do
 			cp -av "$d" "${ED}/usr/$(get_libdir)/sbcl/" || die
 		done
