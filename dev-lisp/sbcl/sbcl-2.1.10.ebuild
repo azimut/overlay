@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 inherit multilib flag-o-matic pax-utils toolchain-funcs
 
@@ -21,7 +21,7 @@ BV_SPARC_SOLARIS=1.0.23
 
 DESCRIPTION="Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp"
 HOMEPAGE="http://sbcl.sourceforge.net/"
-SRC_URI="https://github.com/daewok/sbcl/archive/refs/heads/static-executable-v2-${PV}.zip
+SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
 	x86? ( mirror://sourceforge/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
 	amd64? ( mirror://sourceforge/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
 	ppc? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
@@ -39,8 +39,6 @@ LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
 IUSE="debug doc source +threads +unicode zlib"
-
-S="${WORKDIR}/sbcl-static-executable-v2-${PV}"
 
 CDEPEND=">=dev-lisp/asdf-3.3:="
 BDEPEND="${CDEPEND}
@@ -77,10 +75,10 @@ sbcl_apply_features() {
 	fi
 	sbcl_feature "true" ":sb-ldb"
 	sbcl_feature "false" ":sb-test"
-	# DAEWOK flags
+
+	sbcl_feature "true" ":sb-dynamic-core"
 	sbcl_feature "true" ":sb-linkable-runtime"
-	sbcl_feature "true" ":sb-prelink-linkage-table"
-	# END
+
 	sbcl_feature "$(usep unicode)" ":sb-unicode"
 	sbcl_feature "$(usep zlib)" ":sb-core-compression"
 	sbcl_feature "$(usep debug)" ":sb-xref-for-internals"
@@ -93,7 +91,7 @@ sbcl_apply_features() {
 
 src_unpack() {
 	unpack ${A}
-	mv sbcl-${PV}-* sbcl-binary || die
+	mv sbcl-*-* sbcl-binary || die
 	cd "${S}"
 }
 
@@ -107,10 +105,10 @@ src_prepare() {
 	# bug #767742
 	eapply "${FILESDIR}"/etags-2.1.0.patch
 
-	#eapply "${FILESDIR}"/verbose-build-2.0.3.patch
+	eapply "${FILESDIR}"/verbose-build-2.0.3.patch
 
 	eapply_user
-    echo '"'"${PV}"'"' > version.lisp-expr
+
 	# Make sure the *FLAGS variables are sane.
 	# sbcl needs symbols in resulting binaries, so building with the -s linker flag will fail.
 	strip-unsupported-flags
@@ -232,7 +230,6 @@ src_install() {
 	if use source; then
 		./clean.sh
 		cp -av src "${ED}/usr/$(get_libdir)/sbcl/" || die
-		cp -av tools-for-build "${ED}/usr/$(get_libdir)/sbcl/" || die
 		for d in contrib/*/; do
 			cp -av "$d" "${ED}/usr/$(get_libdir)/sbcl/" || die
 		done
