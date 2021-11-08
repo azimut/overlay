@@ -7,7 +7,7 @@ inherit multilib eutils flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
 BV_X86=1.4.3
-BV_AMD64=2.0.10
+BV_AMD64=${PV}
 BV_PPC=1.2.7
 BV_SPARC=1.0.28
 BV_ALPHA=1.0.28
@@ -19,9 +19,12 @@ BV_X86_SOLARIS=1.2.7
 BV_X64_SOLARIS=1.2.7
 BV_SPARC_SOLARIS=1.0.23
 
+S="${WORKDIR}/sbcl-static-executable-v2-${PV}"
+
 DESCRIPTION="Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp"
 HOMEPAGE="http://sbcl.sourceforge.net/"
-SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
+SRC_URI="!daewok? ( mirror://sourceforge/sbcl/${P}-source.tar.bz2 )
+          daewok? ( https://github.com/daewok/sbcl/archive/refs/heads/static-executable-v2-${PV}.zip )
 	x86? ( mirror://sourceforge/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
 	amd64? ( mirror://sourceforge/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
 	ppc? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
@@ -38,7 +41,7 @@ SRC_URI="mirror://sourceforge/sbcl/${P}-source.tar.bz2
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x86-solaris"
-IUSE="debug doc source +threads +unicode pax_kernel zlib"
+IUSE="daewok debug doc source +threads +unicode pax_kernel zlib"
 
 CDEPEND=">=dev-lisp/asdf-3.3:=
 		elibc_musl? ( >=dev-lisp/ecls-20.4.24 )"
@@ -77,7 +80,8 @@ sbcl_apply_features() {
 	fi
 	sbcl_feature "true" ":sb-ldb"
 	sbcl_feature "false" ":sb-test"
-	sbcl_feature "true" ":sb-linkable-runtime"
+	sbcl_feature "$(usep daewok)" ":sb-linkable-runtime"
+        sbcl_feature "$(usep daewok)" ":sb-prelink-linkage"
 	sbcl_feature "$(usep unicode)" ":sb-unicode"
 	sbcl_feature "$(usep zlib)" ":sb-core-compression"
 	sbcl_feature "$(usep debug)" ":sb-xref-for-internals"
@@ -90,8 +94,12 @@ sbcl_apply_features() {
 
 src_unpack() {
 	unpack ${A}
-	mv sbcl-*-* sbcl-binary || die
-	cd "${S}"
+        if use daewok ; then
+           mv sbcl-${PV}-* sbcl-binary || die
+        else
+           mv sbcl-*-* sbcl-binary || die
+        fi
+        cd "${S}"
 }
 
 src_prepare() {
@@ -102,7 +110,8 @@ src_prepare() {
 	# bugs #560276, #561018
 	eapply "${FILESDIR}"/sb-posix-test-1.2.15.patch
 
-	eapply "${FILESDIR}"/verbose-build-2.0.3.patch
+	use daewok || eapply "${FILESDIR}"/verbose-build-2.0.3.patch
+        use daewok && echo '"'"${PV}"'"' > version.lisp-expr
 
 	eapply_user
 
@@ -244,6 +253,7 @@ src_install() {
 	if use source; then
 		./clean.sh
 		cp -av src "${ED}/usr/$(get_libdir)/sbcl/" || die
+                use daewok && cp -av tools-for-build "${ED}/usr/$(get_libdir)/sbcl/"
 	fi
 
 	# necessary for running newly-saved images
