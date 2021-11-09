@@ -24,7 +24,7 @@ S="${WORKDIR}/sbcl-static-executable-v2-${PV}"
 DESCRIPTION="Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp"
 HOMEPAGE="http://sbcl.sourceforge.net/"
 SRC_URI="!daewok? ( mirror://sourceforge/sbcl/${P}-source.tar.bz2 )
-          daewok? ( https://github.com/daewok/sbcl/archive/refs/heads/static-executable-v2-${PV}.zip )
+		daewok? ( https://github.com/daewok/sbcl/archive/refs/heads/static-executable-v2-${PV}.zip )
 	x86? ( mirror://sourceforge/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
 	amd64? ( mirror://sourceforge/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
 	ppc? ( mirror://sourceforge/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
@@ -81,7 +81,7 @@ sbcl_apply_features() {
 	sbcl_feature "true" ":sb-ldb"
 	sbcl_feature "false" ":sb-test"
 	sbcl_feature "$(usep daewok)" ":sb-linkable-runtime"
-        sbcl_feature "$(usep daewok)" ":sb-prelink-linkage"
+	sbcl_feature "$(usep daewok)" ":sb-prelink-linkage-table"
 	sbcl_feature "$(usep unicode)" ":sb-unicode"
 	sbcl_feature "$(usep zlib)" ":sb-core-compression"
 	sbcl_feature "$(usep debug)" ":sb-xref-for-internals"
@@ -94,12 +94,12 @@ sbcl_apply_features() {
 
 src_unpack() {
 	unpack ${A}
-        if use daewok ; then
+	if use daewok ; then
            mv sbcl-${PV}-* sbcl-binary || die
-        else
+    else
            mv sbcl-*-* sbcl-binary || die
-        fi
-        cd "${S}"
+    fi
+	cd "${S}"
 }
 
 src_prepare() {
@@ -111,7 +111,7 @@ src_prepare() {
 	eapply "${FILESDIR}"/sb-posix-test-1.2.15.patch
 
 	use daewok || eapply "${FILESDIR}"/verbose-build-2.0.3.patch
-        use daewok && echo '"'"${PV}"'"' > version.lisp-expr
+	use daewok && echo '"'"${PV}"'"' > version.lisp-expr
 
 	eapply_user
 
